@@ -5,6 +5,7 @@ Simple tool to generate invoice
 ## Install
 
     gem install moustache
+    gem install yaml-lint
     gem install rake
     [Pandoc - Installing](http://pandoc.org/installing.html)
 
