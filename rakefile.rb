@@ -7,6 +7,13 @@ task :generate do |task|
   system('open pdf/client-2016-05.pdf')
 end
 
+desc 'Destroy generated documents'
+task :destroy do |task|
+  puts :destroy
+  system('rm md/*')
+  system('rm pdf/*')
+end
+
 desc 'list all task'
 task :default do
   system('rake -T')
