@@ -2,16 +2,22 @@
 
 ---------------------------------------
 
-    Invoice: {{invoice}}
+    Facture: {{invoice}}
+    Date de la facture: {{date}}
     Email: {{email}}
     Téléphone: {{phone}}
     Adresse: {{address}}
 
 
-Description                      | Heures    | taux      | Sous total
--------------------------------- | --------- | --------- | ---------
+Description                      | Date     | Heures    | taux      | Sous total
+-------------------------------- | -------- | --------- | --------- | ---------
 {{#tasks}}
-{{description}}                  | {{hours}} | ${{rate}} | ${{subtotal}}
+{{description}}                  | {{date}} | {{hours}} | ${{rate}} | ${{subtotal}}
 {{/tasks}}
 
 **Grand Total**: ${{grandtotal}}
+
+### Modalité de paiement
+
++ Le paiment doit être fait par chèque au nom de {{company}} et expédié au {{address}}
++ Le Grand Total doit être effectué d'ici le {{payment_date}}
