@@ -3,4 +3,10 @@ company: Denis Laliberté
 email: denis.laliberte@gmail.com
 phone: 000-000-0000
 invoice: 20160516
+address: 44455 rue x, hohoho, Ville, qc, Canada
+description: ceci est une tache
+hours: 8
+rate: 100
+subtotal: 800
+grandtotal: 800
 ---
