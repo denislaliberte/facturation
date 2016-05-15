@@ -9,7 +9,15 @@ Simple tool to generate invoice
     gem install rake
     [Pandoc - Installing](http://pandoc.org/installing.html)
 
+## Usage
+    # generate an invoice
+    vim data/client-2016-05.yaml
+    rake generate
+
+
 ## Roadmap
+- add argument to generate a specific invoice
+- generate invoice for every yaml
 - generate yaml from default with company infomation
 - Calculate total
 - Calculate due date
