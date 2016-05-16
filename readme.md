@@ -10,9 +10,7 @@ Simple tool to generate pdf invoice with yaml, moustache and markdown
     [Pandoc - Installing](http://pandoc.org/installing.html)
 
 ## Usage
-    # generate an invoice
-    vim data/client-2016-05.yaml
-    rake generate
+    rake
 
 
 ## Roadmap
