@@ -1,11 +1,15 @@
 
 desc 'Generate invoice'
 task :generate do |task|
-  puts :generate
-  system('yaml-lint data/client-2016-05.yaml')
-  system('mustache data/client-2016-05.yaml invoice.mustache | tee md/client-2016-05.md');
-  system('pandoc md/client-2016-05.md -o pdf/client-2016-05.pdf')
-  system('open pdf/client-2016-05.pdf')
+  system('yaml-lint data/invoices')
+  invoices_data = Rake::FileList["data/invoices/*.yaml"]
+  invoices_data.each do |invoice_path|
+    name = File.basename(invoice_path, '.yaml')
+    puts "Generate invoice #{name}"
+    system("mustache #{invoice_path} invoice.mustache | tee md/#{name}.md");
+    system("pandoc md/#{name}.md -o pdf/#{name}.pdf")
+    system("open pdf/#{name}.pdf")
+  end
 end
 
 desc 'Destroy generated documents'
