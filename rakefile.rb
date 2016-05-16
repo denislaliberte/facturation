@@ -1,3 +1,15 @@
+WORKSPACE = Dir.home + '/facturation'
+
+
+desc 'Initialise home directory'
+task :init do |task|
+  if File.exist?(WORKSPACE)
+    puts "#{WORKSPACE} already exist"
+  else
+    puts "Generate workspace #{WORKSPACE}"
+    system("cp -r template #{WORKSPACE}")
+  end
+end
 
 desc 'Create new invoice'
 task :new, [:client] do |task, args|
