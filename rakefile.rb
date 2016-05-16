@@ -38,9 +38,8 @@ end
 desc 'Destroy generated documents'
 task :destroy do |task|
   puts :destroy
-  system('rm md/*')
-  system('rm pdf/*')
-  system('rm data/invoices/*.yaml')
+  system("rm #{WORKSPACE}/md/*")
+  system("rm #{WORKSPACE}/pdf/*")
 end
 
 desc 'list all task'

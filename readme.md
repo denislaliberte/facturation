@@ -14,6 +14,7 @@ Simple tool to generate pdf invoice with yaml, moustache and markdown
 
 
 ## Roadmap
+- generate date and payment date
 - generate yaml from default with company infomation
 - generate yaml from default with client information
 - organise invoice by year folder
