@@ -16,8 +16,6 @@ Simple tool to generate pdf invoice with yaml, moustache and markdown
 
 
 ## Roadmap
-- work from $HOME/facturation folder
-- generate template directory
 - generate yaml from default with company infomation
 - generate yaml from default with client information
 - organise invoice by year folder
