@@ -1,6 +1,6 @@
 # Facturation
 
-Simple tool to generate invoice
+Simple tool to generate pdf invoice with yaml, moustache and markdown
 
 ## Install
 
