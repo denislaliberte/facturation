@@ -1,8 +1,9 @@
 
 desc 'Create new invoice'
-task :new do |task|
+task :new, [:client] do |task, args|
+  client = args[:client]
   date = Time.now.strftime("%d-%m-%Y")
-  system("cp data/invoice-template.yaml data/invoices/client-#{date}.yaml")
+  system("cp data/invoice-template.yaml data/invoices/#{client}-#{date}.yaml")
 end
 
 desc 'Generate invoice'
@@ -27,6 +28,7 @@ task :destroy do |task|
   puts :destroy
   system('rm md/*')
   system('rm pdf/*')
+  system('rm data/invoices/*.yaml')
 end
 
 desc 'list all task'
