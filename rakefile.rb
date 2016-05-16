@@ -1,4 +1,10 @@
 
+desc 'Create new invoice'
+task :new do |task|
+  date = Time.now.strftime("%d-%m-%Y")
+  system("cp data/invoice-template.yaml data/invoices/client-#{date}.yaml")
+end
+
 desc 'Generate invoice'
 task :generate do |task|
   system('yaml-lint data/invoices')
