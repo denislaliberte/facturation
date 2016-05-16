@@ -1,6 +1,5 @@
 WORKSPACE = Dir.home + '/facturation'
 
-
 desc 'Initialise home directory'
 task :init do |task|
   if File.exist?(WORKSPACE)
@@ -15,22 +14,23 @@ desc 'Create new invoice'
 task :new, [:client] do |task, args|
   client = args[:client]
   date = Time.now.strftime("%d-%m-%Y")
-  system("cp data/invoice-template.yaml data/invoices/#{client}-#{date}.yaml")
+  system("cp #{WORKSPACE}/data/invoice-template.yaml #{WORKSPACE}/data/invoices/#{client}-#{date}.yaml")
 end
 
 desc 'Generate invoice'
 task :generate do |task|
-  system('yaml-lint data/invoices')
-  invoices_data = Rake::FileList["data/invoices/*.yaml"]
+  system("yaml-lint #{WORKSPACE}/data/invoices")
+  invoices_data = Rake::FileList[WORKSPACE + "/data/invoices/*.yaml"]
   invoices_data.each do |invoice_path|
     name = File.basename(invoice_path, '.yaml')
-    pdf_path = "pdf/#{name}.pdf"
+    pdf_path = "#{WORKSPACE}/pdf/#{name}.pdf"
+    md_path = "#{WORKSPACE}/md/#{name}.md"
     if File.exist?(pdf_path)
       puts "#{name} already generated"
     else
       puts "#{name} generated"
-      system("mustache #{invoice_path} invoice.mustache > md/#{name}.md");
-      system("pandoc md/#{name}.md -o #{pdf_path}")
+      system("mustache #{invoice_path} #{WORKSPACE}/invoice.mustache > #{md_path}");
+      system("pandoc #{md_path} -o #{pdf_path}")
     end
   end
 end
