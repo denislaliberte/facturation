@@ -5,10 +5,14 @@ task :generate do |task|
   invoices_data = Rake::FileList["data/invoices/*.yaml"]
   invoices_data.each do |invoice_path|
     name = File.basename(invoice_path, '.yaml')
-    puts "Generate invoice #{name}"
-    system("mustache #{invoice_path} invoice.mustache | tee md/#{name}.md");
-    system("pandoc md/#{name}.md -o pdf/#{name}.pdf")
-    system("open pdf/#{name}.pdf")
+    pdf_path = "pdf/#{name}.pdf"
+    if File.exist?(pdf_path)
+      puts "#{name} already generated"
+    else
+      puts "#{name} generated"
+      system("mustache #{invoice_path} invoice.mustache > md/#{name}.md");
+      system("pandoc md/#{name}.md -o #{pdf_path}")
+    end
   end
 end
 

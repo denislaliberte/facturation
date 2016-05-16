@@ -16,9 +16,6 @@ Simple tool to generate pdf invoice with yaml, moustache and markdown
 
 
 ## Roadmap
-- generate a pdf invoice for every yaml files
-- dont generate a invoice if it's already generated
-- generate invoice for every yaml
 - generate yaml from default with company infomation
 - generate yaml from default with client information
 - organise invoice by year folder
