@@ -20,4 +20,6 @@ tasks:
 grandtotal: 1100
 date: 2016-06-01
 payment_date: 2016-07-01
+client: acme
+client_address: 44455 rue x, hohoho, Ville, qc, Canada
 ---
